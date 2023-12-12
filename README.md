@@ -4,11 +4,11 @@
 
 ## Running this project
 
-This is an Electron project that uses Next.js and TailwindCSS. To run this project, you will need to have Node.js installed. You can download Node.js from [here](https://nodejs.org/en/download/).
+This is an Electron project that uses Next.js and Ant Design. To run this project, you will need to have Node.js installed. You can download it [here](https://nodejs.org/en/download/).
 
 ```bash
 # clone the project
-git clone https://github.com/jordanjanakievski/medscrybe.git
+git clone https://github.com/jordanjanakievski/MedScrybe.git
 
 # run npm install in the root directory
 cd MedScrybe

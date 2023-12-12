@@ -1,37 +1,74 @@
-import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
+import React from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Image from 'next/image';
+import { Layout, Typography, Form, Flex, Button, Input } from 'antd';
+
+const { Header, Content } = Layout;
+
+const { Title } = Typography;
+
+type FieldType = {
+  email?: string;
+  password?: string;
+};
 
 export default function HomePage() {
+
+  const router = useRouter();
+
+
+  const onFinish = (values: any) => {
+    console.log('Success:', values);
+    router.push('/dashboard');
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+};
+
   return (
     <React.Fragment>
       <Head>
-        <title>Home - Nextron (with-tailwindcss)</title>
+        <title>MedScrybe</title>
       </Head>
-      <div className="grid grid-col-1 text-2xl w-full text-center">
-        <div>
-          <Image
-            className="ml-auto mr-auto"
-            src="/images/logo.png"
-            alt="Logo image"
-            width="256px"
-            height="256px"
-          />
-        </div>
-        <span>⚡ Electron ⚡</span>
-        <span>+</span>
-        <span>Next.js</span>
-        <span>+</span>
-        <span>tailwindcss</span>
-        <span>=</span>
-        <span>💕 </span>
-      </div>
-      <div className="mt-1 w-full flex-wrap flex justify-center">
-        <Link href="/next">
-          <a className="btn-blue">Go to next page</a>
-        </Link>
-      </div>
+
+      <Content style={{ backgroundColor: '#77B8FF', minHeight: '100vh', display: 'flex', justifyContent: 'center' }}>
+        <Flex justify={'center'} align={'center'} vertical>
+          <Image src="/images/logo.png" width={200} height={200} alt="MedScrybe Logo"/>
+          <Title>Welcome to MedScrybe!</Title>
+          <br />
+          <Form
+            name="basic"
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+          >
+            <Form.Item<FieldType>
+              name="email"
+              rules={[{ required: true, message: 'Please input your email!' }]}
+            >
+              <Input placeholder="Email" />
+            </Form.Item>
+
+            <Form.Item<FieldType>
+              name="password"
+              rules={[
+                { required: true, message: 'Please input your password!' },
+              ]}
+            >
+              <Input.Password placeholder="Password" />
+            </Form.Item>
+
+            <Form.Item>
+              <Button type="primary" htmlType="submit" block>
+                Sign In
+              </Button>
+            </Form.Item>
+          </Form>
+        </Flex>
+      </Content>
     </React.Fragment>
-  )
+  );
 }
