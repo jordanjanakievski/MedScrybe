@@ -9,7 +9,7 @@ export default function NextPage() {
   return (
     <React.Fragment>
       <Head>
-        <title>Next - Nextron (with-ant-design)</title>
+        <title>MedScrybe - Dashboard</title>
       </Head>
 
       <Header>

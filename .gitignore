@@ -13,3 +13,6 @@ dist
 # ide files
 .idea
 .vscode
+
+# misc
+.DS_Store
