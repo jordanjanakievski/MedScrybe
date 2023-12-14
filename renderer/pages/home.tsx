@@ -20,7 +20,7 @@ export default function HomePage() {
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    router.push('/dashboard');
+    router.push('/mvp');
   };
 
   const onFinishFailed = (errorInfo: any) => {

@@ -1,4 +1,4 @@
-<p align="center"><img src="resources/MedScrybe Health.png" width="400px"></p>
+<p align="center"><img src="resources/icons/icon_256x256.png"></p>
 
 # MedScrybe
 

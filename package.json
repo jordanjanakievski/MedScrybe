@@ -1,9 +1,8 @@
 {
   "private": true,
-  "name": "my-nextron-app",
-  "description": "My application description",
-  "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "name": "MedScrybe",
+  "description": "A medical transcription tool to free up more time for doctors to be with their patients.",
+  "author": "Jordan Janakievski <jordan.a.janakievski@gmail.com>",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
@@ -12,7 +11,8 @@
   },
   "dependencies": {
     "electron-serve": "^1.1.0",
-    "electron-store": "^8.1.0"
+    "electron-store": "^8.1.0",
+    "langchain": "^0.0.207"
   },
   "devDependencies": {
     "@ant-design/icons": "^4.7.0",
