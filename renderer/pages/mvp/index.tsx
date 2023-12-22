@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Layout, Form, Input, Button } from 'antd';
-
 import { Ollama } from 'langchain/llms/ollama';
+import Navbar from '../../components/navbar';
 
 const ollama = new Ollama({
   baseUrl: 'http://localhost:11434', // Default value
-  model: 'llama2:13b', // Default value
+  model: 'mistral-openorca', // Default value
 });
 
 const { TextArea } = Input;
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 type ConfigFieldType = {
   config?: string;
@@ -24,12 +24,13 @@ type ModelFieldType = {
 
 const ifModelOutput = (model_output: string) => {
   if (model_output != '') {
-    return (
-      <TextArea rows={10} defaultValue={model_output} />
-    );
+    return <TextArea rows={10} defaultValue={model_output} />;
   }
-}
+};
 
+// Should be added to a .env
+const prompt_config =
+  'You are a medical scribe. You will be given a notes template which you should preserve the structure followed by the stream of notes that are to be organized and edited to fit the template. You should not output anything other than the formatted notes\n';
 
 export default function MVP() {
   const [config, setConfig] = useState<string>('');
@@ -43,14 +44,16 @@ export default function MVP() {
 
   const handleSave = () => {
     setFormat(config);
-  }
+  };
 
   const handleConfigChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setConfig(e.target.value);
-  }
+  };
 
   const handleSubmit = async () => {
-    const stream = await ollama.stream(`Using this format: ${format} Format the following accordingly by filling in the places with <Notes> ${model_input}}`);
+    const stream = await ollama.stream(
+      `${prompt_config}${format}\n${model_input}}`
+    );
 
     const chunks = [];
     for await (const chunk of stream) {
@@ -63,14 +66,10 @@ export default function MVP() {
   return (
     <React.Fragment>
       <Head>
-        <title>MedScrybe - Dashboard</title>
+        <title>MedScrybe - MVP</title>
       </Head>
 
-      <Header>
-        <Link href="/home">
-          <a>Back to Sign In</a>
-        </Link>
-      </Header>
+      <Navbar />
 
       <Content style={{ padding: 48 }}>
         <Form>

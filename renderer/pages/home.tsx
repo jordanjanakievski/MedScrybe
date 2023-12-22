@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Layout, Typography, Form, Flex, Button, Input } from 'antd';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const { Title } = Typography;
 
@@ -14,18 +14,16 @@ type FieldType = {
 };
 
 export default function HomePage() {
-
   const router = useRouter();
-
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    router.push('/mvp');
+    router.push('/dashboard');
   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
-};
+  };
 
   return (
     <React.Fragment>
@@ -33,9 +31,21 @@ export default function HomePage() {
         <title>MedScrybe</title>
       </Head>
 
-      <Content style={{ backgroundColor: '#77B8FF', minHeight: '100vh', display: 'flex', justifyContent: 'center' }}>
+      <Content
+        style={{
+          backgroundColor: '#77B8FF',
+          minHeight: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
         <Flex justify={'center'} align={'center'} vertical>
-          <Image src="/images/logo.png" width={200} height={200} alt="MedScrybe Logo"/>
+          <Image
+            src="/images/logo.png"
+            width={200}
+            height={200}
+            alt="MedScrybe Logo"
+          />
           <Title>Welcome to MedScrybe!</Title>
           <br />
           <Form
