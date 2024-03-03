@@ -5,6 +5,7 @@ import { EyeOpenIcon, EyeNoneIcon } from "@radix-ui/react-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -39,6 +40,8 @@ const formSchema = z.object({
 });
 
 export function RegistrationForm() {
+  const router = useRouter();
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,6 +59,8 @@ export function RegistrationForm() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    // Upon success, route to dashboard
+    router.push("/dashboard");
   }
 
   return (
