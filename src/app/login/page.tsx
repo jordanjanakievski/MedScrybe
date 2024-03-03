@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="container relative hidden h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+    <div className="container relative hidden h-screen flex-col items-center justify-center sm:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
       <div className="hidden h-screen flex-col bg-muted p-10 lg:flex dark:border-r">
         <div className="relative z-20 flex items-center text-lg font-medium">
           <Image src={Logo} alt="logo" width="50" height="50" />
@@ -22,7 +22,10 @@ export default function LoginPage() {
         </div>
       </div>
       <div>
-        <div className="flex flex-col justify-center place-items-center h-screen p-10">
+        <div className="flex flex-col justify-center place-items-center p-10">
+          <div className="lg:hidden mb-8">
+            <Image src={Logo} alt="logo" width="100" height="50" />
+          </div>
           <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             Welcome Back!
           </h1>

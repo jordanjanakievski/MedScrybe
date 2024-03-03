@@ -59,7 +59,9 @@
         "height": 600,
         "resizable": true,
         "title": "MedScrybe",
-        "width": 800
+        "width": 800,
+        "minWidth": 645,
+        "minHeight": 600
       }
     ]
   }
