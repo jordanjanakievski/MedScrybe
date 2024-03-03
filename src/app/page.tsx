@@ -1,4 +1,4 @@
-import LoginPage from "./login/page";
+import LoginPage from "./landing/login/page";
 
 export default function Main() {
   return <LoginPage />;

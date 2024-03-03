@@ -19,12 +19,12 @@ export function NavBar() {
             className="ml-5 mt-5 mb-5"
           />
         </Link>
-        <Link href="/convert">Convert</Link>
-        <Link href="/config">Config</Link>
+        <Link href="/dashboard/convert">Convert</Link>
+        <Link href="/dashboard/config">Config</Link>
       </div>
       <div className="flex flex-row items-center space-x-6 mr-5">
         <ModeToggle />
-        <Link href="/login">
+        <Link href="/landing/login">
           <Avatar>
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>
