@@ -1,5 +1,9 @@
-import LoginPage from "./landing/login/page";
+"use client";
 
-export default function Main() {
-  return <LoginPage />;
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const router = useRouter();
+
+  router.push("/signin");
 }

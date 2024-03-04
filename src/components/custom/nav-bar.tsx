@@ -24,7 +24,7 @@ export function NavBar() {
       </div>
       <div className="flex flex-row items-center space-x-6 mr-5">
         <ModeToggle />
-        <Link href="/landing/login">
+        <Link href="/signin">
           <Avatar>
             <AvatarFallback>MS</AvatarFallback>
           </Avatar>

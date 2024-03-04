@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/assets/images/logo.png";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   return (
     <div className="flex flex-col justify-center place-items-center p-10">
       <div className="lg:hidden mb-8">
@@ -16,7 +16,7 @@ export default function LoginPage() {
       <RegistrationForm />
       <p className="text-sm text-muted-foreground mt-2">
         Already have an account?{" "}
-        <Link href="/landing/login" className="text-blue-600 underline">
+        <Link href="/signin" className="text-blue-600 underline">
           Login
         </Link>
       </p>
