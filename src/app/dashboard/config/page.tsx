@@ -1,3 +1,5 @@
+"use client";
+
 export default function Config() {
   return (
     <div className="flex flex-col items-center pt-4">

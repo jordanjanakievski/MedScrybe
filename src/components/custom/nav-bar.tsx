@@ -15,7 +15,6 @@ export function NavBar() {
             src={Logo}
             alt="logo"
             width={35}
-            height={35}
             className="ml-5 mt-5 mb-5"
           />
         </Link>
